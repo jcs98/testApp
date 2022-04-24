@@ -15,8 +15,10 @@ jobs:
       - run: yarn test
 
       - name: Tests ✅
+        env:
+          RENDER_DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_URL }}
         if: ${{ success() }}
-        run: echo "Tests passed. Deploying - ${{ secrets.RENDER_DEPLOY_URL }}"
+        run: echo "Tests passed. Deploying - $RENDER_DEPLOY_URL"
 
       - name: Tests 🚨
         if: ${{ failure() }}
