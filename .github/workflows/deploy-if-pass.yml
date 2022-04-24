@@ -16,7 +16,7 @@ jobs:
 
       - name: Tests ✅
         if: ${{ success() }}
-        run: echo "Tests passed. Deploying - "
+        run: echo "Tests passed. Deploying - ${{ secrets.RENDER_DEPLOY_URL }}"
 
       - name: Tests 🚨
         if: ${{ failure() }}
